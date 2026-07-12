@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colored Folder Explorer</title>
+
+<style>
+body{
+  background: black;
+}
+  .folder:not(.root),
+.file{
+    opacity:0;
+    transform:translateY(-12px);
+    transition:opacity .1s ease, transform .1s ease;
+}
+.root{
+    opacity:1 !important;
+    transform:none !important;
+    position:sticky;   /* or position:fixed if you want it always visible */
+    top:10px;
+    z-index:1000;
+}
+.parent-folder{
+  margin-left:0;
+  color:white;
+    padding:10px;
+    border-radius:6px;
+    font-weight:bold;
+}
+.folder{
+    color:white;
+    padding:10px;
+    border-radius:6px;
+    font-weight:bold;
+    margin-left: 35px;
+}
+.parent-file{
+  display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#074F;
+    padding:10px;
+    border-radius:6px;
+    margin-left:0;
+}
+.file{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#074F07;
+    padding:10px;
+    border-radius:6px;
+    margin-left:55px;
+}
+
+.yellow{background:#f4b400;}
+.blue{background:#4285f4;}
+.green{background:#34a853;}
+.purple{background:#8e44ad;}
+.red{background:#ea4335;}
+
+a{
+    background:#2196f3;
+    color:white;
+    text-decoration:none;
+    padding:6px 12px;
+    border-radius:5px;
+}
+</style>
+
+</head>
+<body>
+<div id="explorer">
+
+<div class="parent-folder yellow root">📁 Main Folder</div>
+
+<div class="folder blue">📁 Documents</div>
+
+<div class="file">
+    📄 Report.pdf
+    <a href="Report.pdf" download>⬇ Download</a>
+</div>
+
+<div class="file">
+    📄 Notes.pdf
+    <a href="Notes.pdf" download>⬇ Download</a>
+</div>
+
+<div class="folder green">📁 Pictures</div>
+
+<div class="file">
+    🖼 Image1.jpg
+    <a href="Image1.jpg" download>⬇ Download</a>
+</div>
+
+<div class="folder purple">📁 HTML Files</div>
+
+<div class="file">
+    🌐 index.html
+    <a href="index.html" download>⬇ Download</a>
+</div>
+
+</div>
+<div id="explorer">
+
+<div class="parent-folder yellow root">📁 Main Folder</div>
+
+<div class="folder blue">📁 Documents</div>
+
+<div class="file">
+    📄 Report.pdf
+    <a href="Report.pdf" download>⬇ Download</a>
+</div>
+
+<div class="file">
+    📄 Notes.pdf
+    <a href="Notes.pdf" download>⬇ Download</a>
+</div>
+
+<div class="folder green">📁 Pictures</div>
+
+<div class="file">
+    🖼 Image1.jpg
+    <a href="Image1.jpg" download>⬇ Download</a>
+</div>
+
+<div class="folder purple">📁 HTML Files</div>
+
+<div class="file">
+    🌐 index.html
+    <a href="index.html" download>⬇ Download</a>
+</div>
+
+</div>
+<div id="explorer">
+
+<div class="parent-folder red root">📁 Main Folder</div>
+
+<div class="folder">📁 Documents</div>
+
+<div class="file">
+    📄 Report.pdf
+    <a href="Report.pdf" download>⬇ Download</a>
+</div>
+
+<div class="file">
+    📄 Notes.pdf
+    <a href="Notes.pdf" download>⬇ Download</a>
+</div>
+
+<div class="folder green">📁 Pictures</div>
+
+<div class="file">
+    🖼 Image1.jpg
+    <a href="Image1.jpg" download>⬇ Download</a>
+</div>
+
+<div class="folder purple">📁 HTML Files</div>
+
+<div class="file">
+    🌐 index.html
+    <a href="index.html" download>⬇ Download</a>
+</div>
+
+</div>
+<div id="explorer">
+  <div class="parent-file root">
+   🖼 Image1.jpg
+    <a href="20 oct 2023.jpg" download>⬇ Download</a>
+</div>
+<div class="parent-file root">
+    📄 Report.pdf
+    <a href="Report.pdf" download>⬇ Download</a>
+</div>
+<div class="parent-file root">
+    📄 Report.pdf
+    <a href="Report.pdf" download>⬇ Download</a>
+</div>
+</div>
+</body>
+<script>
+  window.onload = function(){
+const items = document.querySelectorAll(".folder:not(.root), .file");
+
+items.forEach((item,index)=>{
+
+setTimeout(()=>{
+
+item.style.opacity="1";
+item.style.transform="translateY(-20px) scaleY(0)";
+item.style.transformOrigin="top";
+item.style.transform="translateY(0) scaleY(1)";
+
+},index*250);
+
+});
+
+};
+</script>
+</html>
